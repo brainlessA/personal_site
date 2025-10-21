@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Upload a New Blog (Admin Only)</h2>
+<form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+  <label>Password:</label><br>
+  <input type="password" name="password" required><br><br>
+
+  <label>Select Blog PDF:</label><br>
+  <input type="file" name="pdf" accept="application/pdf" required><br><br>
+
+  <button type="submit">Upload PDF</button>
+</form>
+{% endblock %}
