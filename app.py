@@ -69,14 +69,18 @@ def home():
 
 @app.route("/blogs")
 def blogs():
-    # Dynamically list all PDFs in /static/pdfs
-    pdf_files = os.listdir(app.config['UPLOAD_FOLDER'])
-    blogs = [
-        {"title": os.path.splitext(pdf)[0].replace('_', ' ').title(), "pdf": pdf}
-        for pdf in pdf_files
-    ]
-    return render_template("blogs.html", blogs=blogs)
+    pdf_folder = app.config['UPLOAD_FOLDER']
+    files = os.listdir(pdf_folder)
+    blogs = []
 
+    for f in files:
+        if f.endswith('.pdf') or f.endswith('.md'):
+            blogs.append({
+                "title": os.path.splitext(f)[0].replace('_', ' ').title(),
+                "file": f,
+                "type": f.split('.')[-1]  # 'pdf' or 'md'
+            })
+    return render_template("blogs.html", blogs=blogs)
 @app.route("/projects")
 def projects():
     projects_list = [
@@ -113,3 +117,4 @@ def upload():
 # For local testing; Render uses gunicorn in production
 if __name__ == "__main__":
     app.run(debug=True)
+
