@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title if title else 'Argha Patra | IISER Mohali' }}</title>
+  <title>{{ title if title else 'Argha Patra' }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <header>
     <h1>Argha Patra</h1>
-    <p>BS-MS 2nd Year, Bio-Math Premajor | IISER Mohali</p>
+    <p>BS-MS 2nd Year | IISER Mohali</p>
   </header>
 
   <nav>
     <a href="{{ url_for('home') }}">Home</a>
     <a href="{{ url_for('blogs') }}">Blogs</a>
     <a href="{{ url_for('projects') }}">Projects</a>
-    <a href="{{ url_for('upload') }}">Upload</a>
+    <!-- <a href="{{ url_for('upload') }}">Upload</a> -->
   </nav>
 
   <main>
@@ -25,7 +25,9 @@
 
   <footer>
     <p>© Argha Patra | Indian Institute of Science Education and Research Mohali</p>
-    <p><a href="mailto:ms24159@iisermohali.ac.in" style="color:#4db8ff;">ms24159@iisermohali.ac.in</a></p>
+    <p><a href="mailto:ms24159@iisermohali.ac.in" style="color:#4db8ff;">Official mail</a></p>
+    <p><a href="mailto:arghapatra@gmail.com" style="color:#4db8ff;">Personal mail</a></p>
   </footer>
 </body>
 </html>
+
