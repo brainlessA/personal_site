@@ -6,7 +6,7 @@
   <li>
     <h3>{{ blog.title }}</h3>
     {% if blog.type == 'md' %}
-      <a href="{{ url_for('view_md', name=blog) }}">{{ blog }}</a>
+      <a href="{{ url_for('static', filename='pdfs/' + blog.file) }}">{{ blog }}</a>
     {% if blog.type == 'pdf' %}
       <a href="{{ url_for('static', filename='pdfs/' + blog.file) }}" target="_blank">📄 PDF</a>
     <!-- {% elif blog.type == 'md' %} -->
@@ -17,6 +17,7 @@
 </ul>
 <p><a href="{{ url_for('upload') }}">Admin login</a></p>
 {% endblock %}
+
 
 
 
